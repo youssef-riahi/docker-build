@@ -28,13 +28,13 @@ To use this action in your workflows, add the following step:
 - name: Build and Push Docker Image
   uses: your-github-username/docker-build-and-push-action@version
   with:
-    registry: ${{ secrets.REGISTRY_URL }}
+    registry: ${{ secrets.REGISTRY_URL }} # If you are using a private registry
     username: ${{ secrets.REGISTRY_USERNAME }}
     password: ${{ secrets.REGISTRY_PASSWORD }}
     dockerfile-path: './Dockerfile'
     context-path: '.'
     build-args: 'ARG1=value1,ARG2=value2'
-    image-tags: 'latest,${{ github.sha }}'
+    image-tags: 'myusername/myimage:latest'
     no-cache: 'true'
     push-image: 'true'
 ```
